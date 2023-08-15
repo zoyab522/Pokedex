@@ -1,2 +1,2 @@
 # Pokedex
- Collection and description of all 898 Pokemon, using Pokedex API. 
+ Collection and description of all 1010 Pokemon, using Pokedex API. 
