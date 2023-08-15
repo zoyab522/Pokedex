@@ -19,10 +19,10 @@ body {
     font-family: 'Outfit', sans-serif;
     display: flex;
     justify-content: center;
-    background-image: url(src/pokeball-icon.png);
+    background-image: url(src/blue-gradient.jpg);
     background-repeat: no-repeat;
-    background-position-x: -180px;
-    background-position-y: -80px;
+    background-size: 150vw 100vh;
+    background-attachment: fixed;
     width: 100%
 }
 
@@ -37,7 +37,7 @@ h4 {
 }
 
 span {
-    color: #8F9396;
+    color: #000c1a;
 }
 
 .font-size-12 {
@@ -70,16 +70,20 @@ span {
 
 .container {
     border-radius: 20px;
-    box-shadow: #EDEDED 0 10px 10px;
+    box-shadow: #bababa32 0 10px 10px;
     padding: 15px;
-    background-color: white;
+    backdrop-filter: blur(15px) saturate(200%);
+    -webkit-backdrop-filter: blur(15px) saturate(200%);
+    background-color: rgba(255, 255, 255, 0.65);
+    /*border: 1px solid rgba(209, 213, 219, 0.3);*/
 }
 
 input {
     border: none;
     outline: none;
     font-size: 18px;
-    flex: 1
+    background-color: #ffffff00;
+    flex: 1;
 }
 
 .margin-5 {
@@ -103,6 +107,7 @@ input {
     font-weight: 600;
     font-size: 14px;
     opacity: 0.8;
+    text-transform:uppercase;
 }
 
 .loading-ball {
@@ -168,12 +173,11 @@ input {
     padding-top: 40px;
     position: relative;
     cursor: pointer;
-    border: 2px solid white;
     transition-duration: 100ms;
 }
 
 .pokemon-render-result-container:hover {
-    border: 2px solid #e0e0e0;
+    border: 2px solid #ffffff85;
 }
 
 .pokemon-render-result-container:hover .search-pokemon-image {
@@ -264,8 +268,8 @@ input {
 
 .pokemon-info-variable-container{
     width: 100%;
-    background-color: #F6F8FC;
-    padding: 8px 0;
+    background-color: #ffffff;
+    padding: 7px 0;
     border-radius: 30px;
     margin: 5px;
 }
@@ -278,6 +282,30 @@ input {
     margin: 5px;
 }
 
+#hp-stats-container {
+    background:#ffaaa9;
+}
+
+#atk-stats-container {
+    background:#ffbf83;
+}
+
+#def-stats-container {
+    background:#ffe987;
+}
+
+#spa-stats-container {
+    background:#7ad9ff;
+}
+
+#spd-stats-container {
+    background:#aeea9e;
+}
+
+#SPD-stats-container {
+    background:#ffbecb;
+}
+
 .current-pokemon-stats-container h5 {
     margin: 6px 0;
 }
@@ -286,7 +314,7 @@ input {
     border-radius: 50%;
     height: 25px;
     width: 25px;
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: bold;
     display: flex;
     justify-content: center;
@@ -307,7 +335,7 @@ input {
 
 .current-pokemon-evolution-level-container {
     width: 50px;
-    background-color: #F6F8FC;
+    background-color: #ffffff;
     padding: 8px 0;
     border-radius: 30px;
     margin: 5px;
@@ -416,6 +444,9 @@ input {
         margin: 0;
         width: calc(100% - 30px);
         display: none;
+        background-color:#ffffffd8;
+        backdrop-filter: blur(20px) saturate(40%);
+        -webkit-backdrop-filter:blur(20px) saturate(40%);
     }
 
     #current-pokemon-responsive-close {
