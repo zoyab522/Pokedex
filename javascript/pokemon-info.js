@@ -159,31 +159,33 @@ function setUpPokemonNextPrev(pokemon, id) {
     const nextImage = document.getElementById('next-pokemon-in-list');
     const backArrow = document.getElementById('back-icon');
     const nextArrow = document.getElementById('next-icon');
+    const backButton = document.getElementById('back-button');
+    const nextButton = document.getElementById('next-button');
 
     if(pokemon.id == 1) {
-        document.getElementById('back-pokemon-index').innerHTML = '';
-        document.getElementById('prev-pokemon-index-name').innerHTML = ' N/A ';
-        prevImage.src='./src/no-selection-removebg-mini.png';
-        document.getElementById('back-button').setAttribute('disabled', '');
+        document.getElementById('left-side').style.display = 'none';
+        backButton.style.display='none';
     } else {
         document.getElementById('back-pokemon-index').innerHTML = ' #' + back;
         document.getElementById('prev-pokemon-index-name').innerHTML = dressUpPayloadValue(pokemons[back - 1].name);
         prevImage.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + back + '.png';
         prevImage.setAttribute('onClick', 'javascript: ' + 'openInfo(' + back + ')');
         backArrow.setAttribute('onClick', 'javascript: ' + 'openInfo(' + back + ')');
+        document.getElementById('left-side').style.display = 'flex';
+        backButton.style.display='flex';
     };
 
     if(pokemon.id == 1010) {
-        document.getElementById('next-pokemon-index').innerHTML = '';
-        document.getElementById('next-pokemon-index-name').innerHTML = 'N/A';
-        nextImage.src='./src/no-selection-removebg-mini.png';
-        document.getElementById('next-button').setAttribute('disabled', '');
+        document.getElementById('right-side').style.display = 'none';
+        nextButton.style.display = 'none';
     } else {
         document.getElementById('next-pokemon-index').innerHTML = ' #' + next;
         document.getElementById('next-pokemon-index-name').innerHTML = dressUpPayloadValue(pokemons[next - 1].name);
         nextImage.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + next + '.png';
         nextImage.setAttribute('onClick', 'javascript: ' + 'openInfo(' + next + ')');
         nextArrow.setAttribute('onClick', 'javascript: ' + 'openInfo(' + next + ')');
+        document.getElementById('right-side').style.display = 'flex';
+        nextButton.style.display = 'flex';
     };
     
 };

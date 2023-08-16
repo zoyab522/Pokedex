@@ -140,21 +140,21 @@
 
             <!--Next and Previous Container-->
             <div class = "row center">
-                <button id="back-button" class = "arrow-button"><img id="back-icon" class="arrow row" onclick="setUpPokemonNextPrev()" src="./src/back-icon-removebg-preview.png"></button>
+                <button id="back-button" class = "arrow-button" onclick="setUpPokemonNextPrev()"><img id="back-icon" class="arrow row" src="./src/back-icon-removebg-preview.png"></button>
                 <div id="current-pokemon-indexes-container">
-                    <div class="left-side-indexes row">
+                    <div id = "left-side" class="left-side-indexes row">
                         <div><img id="previous-pokemon-in-list" class="current-pokemon-prev" src="./src/pokeball-icon.png"></div>
                         <div><span id="prev-pokemon-index-name" class="font-size-12 bold">Prinlup </span></div>
                         <div><span id="back-pokemon-index" class="font-size-12">#213</span></div>
                     </div>
                     
-                    <div class="right-side-indexes row">
+                    <div id = "right-side" class="right-side-indexes row">
                         <div><span id="next-pokemon-index-name" class="font-size-12 bold">Starly </span></div>
                         <div><span id="next-pokemon-index" class="font-size-12">#213</span></div>
                         <div><img id="next-pokemon-in-list" class="current-pokemon-next" src="./src/pokeball-icon.png"></div>
                     </div>
                 </div>
-                <button id="next-button" class = "arrow-button"><img id="next-icon" class = "arrow row" onclick="setUpPokemonNextPrev()" src="./src/next-icon.png"></button>
+                <button id="next-button" class = "arrow-button" onclick="setUpPokemonNextPrev()"><img id="next-icon" class = "arrow row" src="./src/next-icon.png"></button>
             </div>
         </div>
 
