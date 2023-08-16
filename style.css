@@ -72,6 +72,7 @@ span {
     border-radius: 20px;
     box-shadow: #bababa32 0 10px 10px;
     padding: 15px;
+    margin: 20px;
     backdrop-filter: blur(15px) saturate(200%);
     -webkit-backdrop-filter: blur(15px) saturate(200%);
     background-color: rgba(255, 255, 255, 0.548);
@@ -214,22 +215,70 @@ input {
 
 /*Current Pokemon*/
 #current-pokemon-container {
-    width: 320px;
+    width: 350px;
     margin: 10px;
-    height: 82vh;
+    height: 80vh;
     position: fixed;
-    right: calc(10vw - 20px);
+    right: 80px;
     padding: 0 15px;
     text-align: center;
     bottom: 0;
-    margin-bottom: 0;
-    border-bottom-left-radius: 0;
-    border-bottom-right-radius: 0;
+    margin-bottom: 17px;
+}
+
+#current-pokemon-indexes-container {
+    backdrop-filter: blur(15px) saturate(200%);
+    -webkit-backdrop-filter: blur(15px) saturate(200%);
+    border: 1px solid white;
+    border-radius: 20px;
+    margin: 10px;
+    width: 100%;
+}
+
+.arrow {
+    height: 12px;
+    width: 10px;
+    cursor: pointer;
+    border-radius: 30%;
+    padding: 2px;
+}
+
+.arrow:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.arrow-button {
+    border: none;
+}
+
+.current-pokemon-next { 
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    float: right;
+}
+
+.current-pokemon-prev {
+    height: 60px;
+    width: 60px;
+    cursor: pointer;
+    float: left;
+}
+
+.right-side-indexes {
+    float: right;
+    align-items: center;
+}
+
+.left-side-indexes {
+    float: left;
+    align-items: center;
 }
 
 #current-pokemon-info {
     margin-top: 6vh;
     height: 100%;
+    width: 100%;
     display: flex;
     flex-direction: column;
     -ms-overflow-style: none; /* for Internet Explorer, Edge */
@@ -238,20 +287,20 @@ input {
 }
 
 #current-pokemon-info::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
+    display: none; 
 }
 
 #current-pokemon-image {
     position: absolute;
     right: 0;
     left: 0;
-    bottom: 77vh;
+    bottom: 75vh;
     margin-right: auto;
     margin-left: auto;
     object-fit: contain;
     image-rendering: pixelated;
-    max-width: 350px;
-    max-height: 22vh;
+    max-width: 330px;
+    max-height: 20vh;
 }
 
 #current-pokemon-loading {
@@ -333,12 +382,17 @@ input {
     background-color: rgba(0, 0, 0, 0.03);
 }
 
+
+
 .current-pokemon-evolution-level-container {
     width: 50px;
-    background-color: #ffffff;
+    backdrop-filter: blur(15px) saturate(300%);
+    -webkit-backdrop-filter: blur(15px) saturate(300%);
+    border: 1px solid white;
     padding: 8px 0;
     border-radius: 30px;
     margin: 5px;
+    color:#5f5f5f;
 }
 
 
@@ -350,7 +404,7 @@ input {
 }
 
 @keyframes slideOut {
-    0% {right: calc(10vw - 20px)}
+    0% {right: 80px}
     100% {right: -400px}
 }
 
@@ -361,7 +415,7 @@ input {
 
 @keyframes slideIn {
     0% {right: -400px}
-    100% {right: calc(10vw - 20px)}
+    100% {right: 80px}
 }
 
 

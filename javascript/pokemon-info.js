@@ -31,6 +31,7 @@ async function fetchPokemonInfo(id) {
     setupPokemonStats(pokemon);
     setupPokemonAbilities(pokemon);
     setupEvolutionChain(evolution_chain);
+    setUpPokemonNextPrev(pokemon, id);
     setupResponsiveBackground(pokemon);
 
     slideInPokemonInfo();
@@ -139,7 +140,7 @@ function setupEvolution(chain, no) {
     chainImages[no + 1].setAttribute('onClick', 'javascript: ' + 'openInfo(' + filterIdFromSpeciesURL(chain.evolves_to[0].species.url) + ')');
 
     if(chain.evolves_to[0].evolution_details[0].min_level) {
-        chainLevels[no].innerHTML = 'Lv. ' + chain.evolves_to[0].evolution_details[0].min_level;
+        chainLevels[no].innerHTML = 'Lvl ' + chain.evolves_to[0].evolution_details[0].min_level;
     } else {
         chainLevels[no].innerHTML = 'N/A';
     };
@@ -148,6 +149,43 @@ function setupEvolution(chain, no) {
 /**filter id from species url */
 function filterIdFromSpeciesURL(url){
     return url.replace('https://pokeapi.co/api/v2/pokemon-species/', '').replace('/', '');
+};
+
+/** Add next and previous Pokemon */
+function setUpPokemonNextPrev(pokemon, id) {
+    const next = pokemon.id + 1;
+    const back = pokemon.id - 1;
+    const prevImage = document.getElementById('previous-pokemon-in-list');
+    const nextImage = document.getElementById('next-pokemon-in-list');
+    const backArrow = document.getElementById('back-icon');
+    const nextArrow = document.getElementById('next-icon');
+
+    if(pokemon.id == 1) {
+        document.getElementById('back-pokemon-index').innerHTML = '';
+        document.getElementById('prev-pokemon-index-name').innerHTML = ' N/A ';
+        prevImage.src='./src/no-selection-removebg-mini.png';
+        document.getElementById('back-button').setAttribute('disabled', '');
+    } else {
+        document.getElementById('back-pokemon-index').innerHTML = ' #' + back;
+        document.getElementById('prev-pokemon-index-name').innerHTML = dressUpPayloadValue(pokemons[back - 1].name);
+        prevImage.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + back + '.png';
+        prevImage.setAttribute('onClick', 'javascript: ' + 'openInfo(' + back + ')');
+        backArrow.setAttribute('onClick', 'javascript: ' + 'openInfo(' + back + ')');
+    };
+
+    if(pokemon.id == 1010) {
+        document.getElementById('next-pokemon-index').innerHTML = '';
+        document.getElementById('next-pokemon-index-name').innerHTML = 'N/A';
+        nextImage.src='./src/no-selection-removebg-mini.png';
+        document.getElementById('next-button').setAttribute('disabled', '');
+    } else {
+        document.getElementById('next-pokemon-index').innerHTML = ' #' + next;
+        document.getElementById('next-pokemon-index-name').innerHTML = dressUpPayloadValue(pokemons[next - 1].name);
+        nextImage.src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/' + next + '.png';
+        nextImage.setAttribute('onClick', 'javascript: ' + 'openInfo(' + next + ')');
+        nextArrow.setAttribute('onClick', 'javascript: ' + 'openInfo(' + next + ')');
+    };
+    
 };
 
 

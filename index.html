@@ -131,11 +131,30 @@
                 <h4>EVOLUTION</h4>
                 <div class="row center">
                     <img id="current-pokemon-evolution-0" class="current-pokemon-evolution-image" src="./src/pokeball-icon.png">
-                    <div id="current-pokemon-evolution-level-0" class="current-pokemon-evolution-level-container font-size-12 bold">Lv. 16</div>
+                    <div id="current-pokemon-evolution-level-0" class="current-pokemon-evolution-level-container font-size-12 bold">Lv1 16</div>
                     <img id="current-pokemon-evolution-1" class="current-pokemon-evolution-image" src="./src/pokeball-icon.png">
-                    <div id="current-pokemon-evolution-level-1"class="current-pokemon-evolution-level-container font-size-12 bold">Lv. 36</div>
+                    <div id="current-pokemon-evolution-level-1"class="current-pokemon-evolution-level-container font-size-12 bold">Lv1 36</div>
                     <img id="current-pokemon-evolution-2" class="current-pokemon-evolution-image" src="./src/pokeball-icon.png">
                 </div>
+            </div>
+
+            <!--Next and Previous Container-->
+            <div class = "row center">
+                <button id="back-button" class = "arrow-button"><img id="back-icon" class="arrow row" onclick="setUpPokemonNextPrev()" src="./src/back-icon-removebg-preview.png"></button>
+                <div id="current-pokemon-indexes-container">
+                    <div class="left-side-indexes row">
+                        <div><img id="previous-pokemon-in-list" class="current-pokemon-prev" src="./src/pokeball-icon.png"></div>
+                        <div><span id="prev-pokemon-index-name" class="font-size-12 bold">Prinlup </span></div>
+                        <div><span id="back-pokemon-index" class="font-size-12">#213</span></div>
+                    </div>
+                    
+                    <div class="right-side-indexes row">
+                        <div><span id="next-pokemon-index-name" class="font-size-12 bold">Starly </span></div>
+                        <div><span id="next-pokemon-index" class="font-size-12">#213</span></div>
+                        <div><img id="next-pokemon-in-list" class="current-pokemon-next" src="./src/pokeball-icon.png"></div>
+                    </div>
+                </div>
+                <button id="next-button" class = "arrow-button"><img id="next-icon" class = "arrow row" onclick="setUpPokemonNextPrev()" src="./src/next-icon.png"></button>
             </div>
         </div>
 
