@@ -852,6 +852,11 @@ body.dark-mode .current-pokemon-info {
         border: 2px solid rgba(255, 255, 255, 0.8);
     }
 
+    /* Hide navigation bar on mobile */
+    .pokemon-nav-container {
+        display: none;
+    }
+
     /* Center search bar on mobile */
     .search-bar-container {
         margin: 30px 20px;
