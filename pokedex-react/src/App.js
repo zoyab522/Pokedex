@@ -5,6 +5,7 @@ import PokemonList from './components/PokemonList';
 import PokemonInfo from './components/PokemonInfo';
 import LoadingScreen from './components/LoadingScreen';
 import BackToTop from './components/BackToTop';
+import DarkModeToggle from './components/DarkModeToggle';
 
 function App() {
   const [pokemons, setPokemons] = useState([]);
@@ -13,6 +14,7 @@ function App() {
   const [loading, setLoading] = useState(true);
   const [showBackToTop, setShowBackToTop] = useState(false);
   const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1200);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   // Fetch all Pokemon names and types on component mount
   useEffect(() => {
@@ -38,6 +40,15 @@ function App() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Apply dark mode class to body
+  useEffect(() => {
+    if (isDarkMode) {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }, [isDarkMode]);
 
   // Fetch Pokemon names and types
   const getAllNames = async () => {
@@ -122,6 +133,11 @@ function App() {
     window.scrollTo(0, 0);
   };
 
+  // Handle dark mode toggle
+  const handleDarkModeToggle = () => {
+    setIsDarkMode(!isDarkMode);
+  };
+
   if (loading) {
     return <LoadingScreen />;
   }
@@ -129,6 +145,8 @@ function App() {
 
   return (
     <div className="App">
+      <DarkModeToggle isDarkMode={isDarkMode} onToggle={handleDarkModeToggle} />
+      
       <div className="pokedex-container">
         <div className={`pokedex-list ${selectedPokemon && isDesktop && filteredPokemons.length > 0 ? 'has-sidebar' : ''}`}>
           <SearchBar onSearch={handleSearch} />
@@ -150,7 +168,7 @@ function App() {
       
       {/* Blur overlay for mobile fullscreen mode */}
       {selectedPokemon && !isDesktop && filteredPokemons.length > 0 && (
-        <div className={`blur-overlay ${selectedPokemon ? 'active' : ''}`} />
+        <div className="blur-overlay active" />
       )}
       
       {showBackToTop && <BackToTop onClick={scrollToTop} />}

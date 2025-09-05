@@ -2,13 +2,17 @@ import React from 'react';
 
 const PokemonCard = ({ pokemon, onClick }) => {
   const getImageUrl = (id) => {
-    if (id >= 650 && id <= 898) {
-      return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/${id}.png`;
-    } else if (id < 650) {
-      return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${id}.gif`;
-    } else {
-      return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+    // Always use static PNG sprites for the grid cards
+    return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png`;
+  };
+
+
+  const dressUpPayloadValue = (string) => {
+    const splitStr = string.toLowerCase().split('-');
+    for (let i = 0; i < splitStr.length; i++) {
+      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
     }
+    return splitStr.join(' ');
   };
 
   const getTypeContainers = (types) => {
@@ -35,11 +39,11 @@ const PokemonCard = ({ pokemon, onClick }) => {
     };
 
     return (
-      <div className="row">
+      <div className="type-tags-container">
         {types.map((type, index) => (
           <div
             key={index}
-            className="type-container"
+            className="type-tag"
             style={{ background: typeColors[type] }}
           >
             {dressUpPayloadValue(type)}
@@ -47,14 +51,6 @@ const PokemonCard = ({ pokemon, onClick }) => {
         ))}
       </div>
     );
-  };
-
-  const dressUpPayloadValue = (string) => {
-    const splitStr = string.toLowerCase().split('-');
-    for (let i = 0; i < splitStr.length; i++) {
-      splitStr[i] = splitStr[i].charAt(0).toUpperCase() + splitStr[i].substring(1);
-    }
-    return splitStr.join(' ');
   };
 
   return (

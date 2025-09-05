@@ -14,16 +14,27 @@ html {
 }
 
 body {
-    background: #F6F8FC;
+    background: linear-gradient(135deg, #a8d8ea 0%, #b8e6b8 25%, #c7e9c0 50%, #f4d1ae 75%, #f5c6a7 100%);
+    background-attachment: fixed;
     padding: 0 10vw;
     font-family: 'Outfit', sans-serif;
     display: flex;
     justify-content: center;
-    background-image: url(../public/assets/blue-gradient.jpg);
-    background-repeat: no-repeat;
-    background-size: 150vw 100vh;
-    background-attachment: fixed;
-    width: 100%
+    width: 100%;
+    min-height: 100vh;
+    transition: background 0.3s ease;
+}
+
+/* Dark Mode Styles */
+body.dark-mode {
+    background: linear-gradient(90deg, #1a1a2e 0%, #16213e 25%, #0f3460 50%, #2c3e50 75%, #34495e 100%);
+}
+
+/* Fix background scrolling issue on mobile */
+@media(max-width: 768px) {
+    body {
+        background-attachment: scroll;
+    }
 }
 
 .App {
@@ -42,6 +53,7 @@ h1, h2, h3, h4 {
     color: #011030;
     margin: 5px;
     text-align: center;
+    transition: color 0.3s ease;
 }
 
 h4 {
@@ -50,6 +62,19 @@ h4 {
 
 span {
     color: #000c1a;
+    transition: color 0.3s ease;
+}
+
+/* Dark Mode Text Colors */
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4 {
+    color: #e0e6ed;
+}
+
+body.dark-mode span {
+    color: #c7d2da;
 }
 
 .font-size-12 {
@@ -90,6 +115,14 @@ span {
     -webkit-backdrop-filter: blur(15px) saturate(200%);
     background-color: rgba(255, 255, 255, 0.548);
     border: 1px solid rgba(255, 255, 255, 0.434);
+    transition: all 0.3s ease;
+}
+
+/* Dark Mode Container */
+body.dark-mode .container {
+    background-color: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: rgba(0, 0, 0, 0.3) 0 10px 10px;
 }
 
 input {
@@ -124,6 +157,30 @@ input {
     text-transform:uppercase;
 }
 
+/* Type Tags for Pokemon Cards */
+.type-tags-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    margin-top: 8px;
+    width: 100%;
+}
+
+.type-tag {
+    border-radius: 12px;
+    padding: 2px 8px;
+    color: white;
+    font-weight: 600;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    min-width: 50px;
+    text-align: center;
+}
+
 .loading-ball {
     height: 60px;
     filter: brightness(80%);
@@ -149,13 +206,23 @@ input {
 
 /*Search*/
 .search-bar-container {
-    margin: 30px 10px;
+    margin: 30px auto;
     display: flex;
     align-items: center;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 20px;
     padding: 10px 15px;
     box-shadow: #bababa32 0 5px 15px;
+    transition: all 0.3s ease;
+    width: 100%;
+    max-width: 100%;
+}
+
+/* Dark Mode Search Bar */
+body.dark-mode .search-bar-container {
+    background-color: rgba(0, 0, 0, 0.4);
+    box-shadow: rgba(0, 0, 0, 0.3) 0 5px 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .search-input {
@@ -240,7 +307,7 @@ input {
     min-width: 20%;
     margin: 10px;
     margin-top: 60px;
-    padding-top: 40px;
+    padding: 40px 15px 15px 15px;
     position: relative;
     cursor: pointer;
     transition-duration: 100ms;
@@ -249,15 +316,17 @@ input {
     backdrop-filter: blur(10px) saturate(150%);
     -webkit-backdrop-filter: blur(10px) saturate(150%);
     border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+}
+
+/* Dark Mode Pokemon Cards */
+body.dark-mode .pokemon-render-result-container {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .pokemon-render-result-container:hover {
-    border: 2px solid #ffffff85;
     transform: translateY(-2px);
-}
-
-.pokemon-render-result-container:hover .search-pokemon-image {
-    transform: scale(1.15);
 }
 
 .search-pokemon-image {
@@ -302,6 +371,13 @@ input {
     backdrop-filter: blur(20px) saturate(200%);
     -webkit-backdrop-filter: blur(20px) saturate(200%);
     border: 2px solid rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+}
+
+/* Dark Mode Pokemon Info Container */
+body.dark-mode .current-pokemon-container {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .pokemon-nav-container {
@@ -321,6 +397,13 @@ input {
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
+}
+
+/* Dark Mode Navigation Container */
+body.dark-mode .pokemon-nav-container {
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 /* .pokemon-nav-container {
@@ -349,6 +432,28 @@ input {
 
 .arrow-button:hover {
     background-color: rgba(0, 0, 0, 0.03);
+}
+
+/* Close Button Styling */
+.close-button {
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.close-button:hover {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.close-button img {
+    filter: brightness(0) saturate(100%) invert(20%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(0.2) contrast(100%);
+    transition: filter 0.3s ease;
+}
+
+/* Dark Mode Close Button */
+body.dark-mode .close-button img {
+    filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(1) contrast(100%);
 }
 
 .current-pokemon-indexes-container {
@@ -410,13 +515,51 @@ input {
     width: 100%;
     display: flex;
     flex-direction: column;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
     overflow-y: scroll; 
+    padding-right: 5px;
 }
 
+/* Custom scrollbar for Pokemon info container */
 .current-pokemon-info::-webkit-scrollbar {
-    display: none; 
+    width: 4px;
+}
+
+.current-pokemon-info::-webkit-scrollbar-track {
+    background: rgba(1, 16, 48, 0.1);
+    border-radius: 2px;
+}
+
+.current-pokemon-info::-webkit-scrollbar-thumb {
+    background: rgba(1, 16, 48, 0.4);
+    border-radius: 2px;
+    transition: background 0.3s ease;
+}
+
+.current-pokemon-info::-webkit-scrollbar-thumb:hover {
+    background: rgba(1, 16, 48, 0.6);
+}
+
+/* Firefox scrollbar styling */
+.current-pokemon-info {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(1, 16, 48, 0.4) rgba(1, 16, 48, 0.1);
+}
+
+/* Dark Mode Scrollbar */
+body.dark-mode .current-pokemon-info::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .current-pokemon-info::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+body.dark-mode .current-pokemon-info::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.6);
+}
+
+body.dark-mode .current-pokemon-info {
+    scrollbar-color: rgba(255, 255, 255, 0.4) rgba(255, 255, 255, 0.1);
 }
 
 #current-pokemon-image {
@@ -486,6 +629,90 @@ input {
     color:#5f5f5f;
 }
 
+/* Blur overlay for mobile */
+.blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.blur-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 15;
+    cursor: pointer;
+}
+
+/* Hide toggle on mobile and smaller screens */
+@media(max-width: 768px) {
+    .dark-mode-toggle {
+        display: none;
+    }
+}
+
+.toggle-switch {
+    width: 60px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.toggle-switch.dark {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.toggle-slider {
+    width: 26px;
+    height: 26px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    position: absolute;
+    top: 1px;
+    left: 1px;
+    transition: transform 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-switch.dark .toggle-slider {
+    transform: translateX(30px);
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.toggle-icon {
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+.toggle-switch.dark .toggle-icon {
+    filter: brightness(0) invert(1);
+}
+
+
 /*Back to top*/
 .back-to-top-button {
     background-color: white;
@@ -500,7 +727,7 @@ input {
     align-items: center;
     justify-content: center;
     border-radius: 15px;
-    z-index: 1;
+    z-index: 10;
 }
 
 .back-to-top-button:hover {
@@ -625,6 +852,13 @@ input {
         border: 2px solid rgba(255, 255, 255, 0.8);
     }
 
+    /* Center search bar on mobile */
+    .search-bar-container {
+        margin: 30px 20px;
+        width: calc(100% - 40px);
+        max-width: calc(100% - 40px);
+    }
+
     .pokemon-nav-container {
         width: calc(100% - 40px);
         height: 60px;
@@ -645,9 +879,22 @@ input {
         justify-content: center;
     }
 
-    /* Hide Pokemon types on tablet and mobile to prevent overflow */
-    .pokemon-render-result-container .row {
-        display: none;
+
+
+    /* Make Pokemon sprite smaller on mobile */
+    #current-pokemon-image {
+        min-width: 100px;
+        max-width: 180px;
+    }
+
+    /* Reduce font sizes in Pokemon cards on mobile */
+    .pokemon-render-result-container h3 {
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+    .pokemon-render-result-container span {
+        font-size: 10px;
     }
 }
 
@@ -660,10 +907,14 @@ input {
     body {
         width: 90%;
     }
-    
+
+    /* Center search bar on very small mobile */
     .search-bar-container {
-        margin: 40px 0;
+        margin: 30px 10px;
+        width: calc(100% - 20px);
+        max-width: calc(100% - 20px);
     }
+    
 
     .current-pokemon-container {
         width: calc(100% - 20px);
@@ -694,10 +945,6 @@ input {
         justify-content: center;
     }
 
-    /* Hide Pokemon types on mobile to prevent overflow */
-    .pokemon-render-result-container .row {
-        display: none;
-    }
 
     .no-pokemon-found-container {
         height: 40vh;
@@ -710,5 +957,21 @@ input {
 
     .no-pokemon-text {
         font-size: 1.2rem;
+    }
+
+    /* Make Pokemon sprite even smaller on very small mobile screens */
+    #current-pokemon-image {
+        min-width: 80px;
+        max-width: 150px;
+    }
+
+    /* Even smaller font sizes for very small mobile screens */
+    .pokemon-render-result-container h3 {
+        font-size: 12px;
+        margin: 3px 0;
+    }
+
+    .pokemon-render-result-container span {
+        font-size: 9px;
     }
 }

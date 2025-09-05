@@ -188,7 +188,7 @@ const PokemonInfo = ({ pokemon, onClose, onPokemonSelect, allPokemons }) => {
       {/* Main Pokemon info container */}
       <div className="current-pokemon-container">
         {/* Close button */}
-        <div style={{ 
+        <div className="close-button" style={{ 
           position: 'absolute', 
           top: '10px', 
           right: '10px', 
